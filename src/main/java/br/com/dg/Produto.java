@@ -7,16 +7,6 @@ public class Produto {
     private String descricao;
     private Double preco;
 
-    public Produto() {
-    }
-
-    public Produto(String codigo, String nome, String descricao, Double preco) {
-        this.codigo = codigo;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.preco = preco;
-    }
-
     public String getCodigo() {
         return codigo;
     }

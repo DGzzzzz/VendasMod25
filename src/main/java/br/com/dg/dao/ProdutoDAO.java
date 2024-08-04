@@ -6,31 +6,22 @@ import main.java.br.com.dg.dao.generics.GenericDAO;
 
 public class ProdutoDAO extends GenericDAO<Produto, String> implements IProdutoDAO {
     @Override
-    public Boolean salvar(String id, Produto entity) {
-        return true;
+    public Produto buscarCodigo(String codigo) {
+        return buscar(codigo);
     }
 
     @Override
-    public Produto buscar(String id) {
-        Produto produto = new Produto();
-        produto.setCodigo(id);
-        return produto;
+    public void alterar(Produto produto) {
+        super.alterar(produto.getCodigo(), produto);
     }
 
     @Override
-    public void alterar(String id, Produto entity) {
-        entity.getCodigo();
-        entity.getNome();
-        entity.getDescricao();
-        entity.getPreco(); 
+    public void excluir(Produto produto) {
+        super.excluir(produto.getCodigo());
     }
 
     @Override
-    public void excluir(Object codigo) {
-        Produto produto = new Produto();
-        produto.setCodigo(null);
-        produto.setNome(null);
-        produto.setDescricao(null);
-        produto.setPreco(null);
-    }
+    public Boolean salvar(Produto produto) {
+        return super.salvar(produto.getCodigo(), produto);
+    }    
 }
